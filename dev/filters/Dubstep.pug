@@ -1,0 +1,25 @@
+doctype
+html
+    head
+        meta(charset="utf-8")
+        link(href="../css/bulma/bulma.css" rel="stylesheet" type="text/css")
+        link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css")
+        title
+            |Організатор
+
+    body
+        include ../array.pug
+        div(class="wrapper")
+            div(class="columns" style="max-width: 450px; margin: auto;background-color: white; border-radius: 10px 10px 10px 10px;")
+                div(class="column" style="margin:auto")
+                    each item in groups
+                        if (item.style=="Dubstep")
+                            div(class="card")
+                                div(class="card-image")
+                                    figure(class="image ")
+                                        img(src="../" + item.wrapper alt="Placeholder image" style="max-width:427px;margin:auto;")
+                                div(class="media-content" style="padding: 10px; text-align: center;background:"+ color(item.rating))
+                                    p(class="title is-4")=item.name
+                                    p(class="subtitle is-6")=item.style
+                                    -for(var i = 0;i<item.rating;i++)
+                                        i(class="fa fa-star" aria-hidden="true")

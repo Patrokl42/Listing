@@ -1,0 +1,45 @@
+-
+    var groups = [
+    {name: '25/17', rating:4 , style:"Rep" ,wrapper:"images/2517.jpg"},
+    {name: 'AC/DC', rating:5 , style:"Rock and roll" ,wrapper:"images/acdc.jpg"},
+    {name: 'Поплавський Михайло Михайлович', rating:2 , style:"Ethnic music" ,wrapper:"images/poplavskiy.jpg"},
+    {name: 'Skrillex', rating:4 , style:"Dubstep" ,wrapper:"images/skrillex.jpg"},
+    {name: 'MONATIK', rating:3 , style:"Pop" ,wrapper:"images/monatik.jpg"},
+    {name: 'Зібров Павло Миколайович', rating:1 , style:"Ethnic music" ,wrapper:"images/pavlozibrov.jpg"}
+    ]
+    function arr(){
+        var arr = groups.map(function(item){
+        return item.style;
+        });
+        return arr;
+    }
+    function unique(arr) {
+        var obj = {};
+        for (var i = 0; i < arr.length; i++) {
+        var str = arr[i];
+        obj[str] = true;
+        }
+    return Object.keys(obj);
+    }
+    function color(number) {
+        if(number == 1){
+            var color = "grey";
+            return  color;
+        }
+        if(number == 2){
+            var color = "CornflowerBlue";
+            return  color;
+        }
+        if(number == 3){
+            var color = "red";
+            return  color;
+        }
+        if(number == 4){
+            var color = "green";
+            return  color;
+        }
+        if(number == 5){
+            var color = "yellow";
+            return  color;
+        }
+    }

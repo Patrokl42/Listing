@@ -3,68 +3,42 @@ html
     head
         meta(charset="utf-8")
         link(href="css/bulma/bulma.css" rel="stylesheet" type="text/css")
-        link( rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css")
+        link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css")
         title
             |Організатор
-    body(style= "background-image: url(images/cover.jpg); height: 100vh;")
-        -
-            var groups = [
-            {name: '25/17', rating:4 , style:"Rep" ,wrapper:"images/2517.jpg"},
-            {name: 'AC/DC', rating:5 , style:"Rock and roll" ,wrapper:"images/acdc.jpg"},
-            {name: 'Поплавський Михайло Михайлович', rating:2 , style:"Ethnic music" ,wrapper:"images/poplavskiy.jpg"},
-            {name: 'Skrillex', rating:4 , style:"Dubstep" ,wrapper:"images/skrillex.jpg"},
-            {name: 'Зібров Павло Миколайович', rating:3 , style:"Ethnic music" ,wrapper:"images/pavlozibrov.jpg"}
-            ]
-            function arr(){
-                var arr = groups.map(function(item){
-                return item.style;
-                });
-                return arr;
-            }
-            function unique(arr) {
-                var obj = {};
-                for (var i = 0; i < arr.length; i++) {
-                var str = arr[i];
-                obj[str] = true;
-            }
-            return Object.keys(obj);
-            }
-        div(class="wrapper")
-            div(class="columns" style="max-width: 450px; margin: auto;background-color: white; border-radius: 10px 10px 10px 10px;")
-                div(class="column" style="margin:auto")
+    body(style= "background-image: url(images/cover.jpg); height:100vh;")
+    include array.pug
+    div(class="wrapper")
+        div(class="wrapper-content" style="max-width: 450px; margin: auto;background-color: white; border-radius: 10px 10px 10px 10px;")
+            div(class="column" style="margin:auto")
+                div(class="field is-expanded")
+                        a(class="button is-info search" style="min-width: 100%;" href="filters/all.html")
+                            |Показати всіх
+                nav(class="pagination is-rounded" role="navigation" aria-label="pagination" style="padding: 25px 0;")
                     label(class="label")
-                        | Назва групи
-                    div(class="field has-addons")
-                        div(class="control")
-                            input(class="input is-fullwidth" type="text" placeholder="Введіть назву групи")
-                        div(class="control")
-                            a(class="button is-info search")
-                                |Пошук
-                    nav(class="pagination is-rounded" role="navigation" aria-label="pagination" style="padding: 25px 0;")
-                        label(class="label")
-                            | Рейтинг
-                        ul(class="pagination-list")
-                            li(style="margin:auto")
-                                a(class="button is-outlined star-1" style="border-radius: 18px;")
-                                    | 1
-                            li(style="margin:auto")
-                                a(class="button is-outlined star-2" style="border-radius: 18px;")
-                                    | 2
-                            li(style="margin:auto")
-                                a(class="button is-outlined star-3" style="border-radius: 18px;")
-                                    | 3
-                            li(style="margin:auto")
-                                a(class="button is-outlined star-4" style="border-radius: 18px;")
-                                    | 4
-                            li(style="margin:auto")
-                                a(class="button is-outlined star-5" style="border-radius: 18px; ")
-                                    | 5
-                    label(class="label")
-                        | Музичні напрямки
-                    ul(class="menu-list" style="text-align: center")
-                        each item in unique(arr())
-                            li
-                                a=item
+                        | Рейтинг
+                    ul(class="pagination-list" )
+                        li(style="margin:auto")
+                            a(class="button is-outlined star-1" style="border-radius: 18px;" href="filters/1-star.html")
+                                | 1
+                        li(style="margin:auto")
+                            a(class="button is-outlined star-2" style="border-radius: 18px;" href="filters/2-star.html")
+                                | 2
+                        li(style="margin:auto")
+                            a(class="button is-outlined star-3" style="border-radius: 18px;" href="filters/3-star.html")
+                                | 3
+                        li(style="margin:auto")
+                            a(class="button is-outlined star-4" style="border-radius: 18px;" href="filters/4-star.html")
+                                | 4
+                        li(style="margin:auto")
+                            a(class="button is-outlined star-5" style="border-radius: 18px; " href="filters/5-star.html")
+                                | 5
+                label(class="label" style="text-align:center")
+                    | Музичні напрямки
+                ul(class="menu-list" style="text-align: center")
+                    each item in unique(arr())
+                        li
+                            a(href="filters/"+item+".html")=item
 
 
 
